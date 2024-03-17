@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:recipe/afganiMutton.dart';
-import 'package:recipe/item5.dart';
+import 'package:recipe/item4.dart';
+import 'package:recipe/item6.dart';
 import 'package:recipe/menu.dart';
 import 'appbar.dart';
 
-class item4 extends StatelessWidget {
-  const item4({super.key});
+class item5 extends StatelessWidget {
+  const item5({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class item4 extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Vada Pav',
+              'Haleem',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -29,7 +29,7 @@ class item4 extends StatelessWidget {
               borderRadius: BorderRadius.circular(
                   150.0), // Adjust corner radius as desired
               child: Image.asset(
-                "assets/vadaPav.jpeg", // Your image path
+                "assets/Haleem.jpg", // Your image path
                 height: 300,
                 width: 300,
                 fit: BoxFit.cover,
@@ -65,7 +65,7 @@ class item4 extends StatelessWidget {
                     //back
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => AfganiMutton()),
+                      MaterialPageRoute(builder: (context) => item4()),
                     );
                   },
                   child: Text(
@@ -88,9 +88,9 @@ class item4 extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {
                     // next page
-                    Navigator.pushReplacement(
+                    Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => item5()),
+                      MaterialPageRoute(builder: (context) => item6()),
                     );
                   },
                   child: Text(
@@ -108,20 +108,20 @@ class item4 extends StatelessWidget {
 }
 
 class RecipeDetailsPage extends StatelessWidget {
-  const RecipeDetailsPage({super.key});
+  const RecipeDetailsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Scrollbar(
         child: SingleChildScrollView(
-          padding: EdgeInsets.all(16.0), // Add padding around content
+          padding: EdgeInsets.all(16.0),
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  'Vada Pav Recipe',
+                  'Haleem Recipe',
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 16),
@@ -130,59 +130,64 @@ class RecipeDetailsPage extends StatelessWidget {
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  '**For the Vada:**\n'
-                  '1. 1 cup urad dal (whole black gram dal), rinsed and soaked for 4-6 hours\n'
-                  '2. 1 green chili, chopped (optional)\n'
-                  '3. 1 inch ginger, chopped\n'
-                  '4. Curry leaves, a few\n'
-                  '5. Salt to taste\n'
-                  '6. Oil for frying\n'
-                  '\n'
-                  '**For the Potato Filling (Batata Bhaji):**\n'
-                  '7. 2 medium potatoes, boiled, peeled, and mashed\n'
-                  '8. 1/2 teaspoon mustard seeds\n'
-                  '9. 1/4 teaspoon cumin seeds\n'
-                  '10. 1 green chili, chopped\n'
-                  '11. 1 onion, finely chopped\n'
-                  '12. 1 inch ginger, chopped\n'
-                  '13. Curry leaves, a few\n'
-                  '14. Turmeric powder, a pinch\n'
-                  '15. Red chili powder, to taste\n'
-                  '16. Coriander powder, to taste\n'
+                  '**For Haleem:**\n'
+                  '1. 1 cup broken wheat\n'
+                  '2. 1/2 cup barley\n'
+                  '3. 1/4 cup lentils (masoor dal)\n'
+                  '4. 1/4 cup split chickpeas (chana dal)\n'
+                  '5. 1/4 cup split black gram (urad dal)\n'
+                  '6. 1/4 cup split pigeon peas (toor dal)\n'
+                  '7. 1/4 cup split green gram (moong dal)\n'
+                  '8. 1/4 cup split red lentils (masoor dal)\n'
+                  '9. 1/4 cup split green lentils (moong dal)\n'
+                  '10. 1/2 kg boneless mutton or beef, chopped\n'
+                  '11. 2 onions, finely sliced\n'
+                  '12. 2 tomatoes, chopped\n'
+                  '13. 2 tablespoons ginger-garlic paste\n'
+                  '14. 1 tablespoon red chili powder\n'
+                  '15. 1 teaspoon turmeric powder\n'
+                  '16. 1 teaspoon garam masala powder\n'
                   '17. Salt to taste\n'
-                  '18. Cilantro, chopped (for garnish)\n'
+                  '18. Cooking oil or ghee\n'
+                  '19. Fresh coriander leaves and sliced ginger for garnish\n'
                   '\n'
-                  '**For the Pav (Burger Buns):**\n'
-                  '19. You can use store-bought pav buns or make your own using a recipe\n'
+                  '**For Garnish:**\n'
+                  '20. Fried onions\n'
+                  '21. Lemon wedges\n'
+                  '22. Mint leaves\n'
                   '\n'
-                  '**For the Chutneys (optional):**\n'
-                  '20. Green chutney (made with coriander leaves, mint, chilies, and ginger)\n'
-                  '21. Tamarind chutney (made with tamarind pulp, dates, jaggery, and spices)',
+                  '**For Serving:**\n'
+                  '23. Lemon wedges\n'
+                  '24. Fried onions\n'
+                  '25. Mint leaves\n'
+                  '26. Ginger juliennes\n'
+                  '27. Garam masala powder\n'
+                  '28. Fried bread pieces (optional)\n',
                   style: TextStyle(fontSize: 16),
                 ),
-                SizedBox(height: 8),
                 SizedBox(height: 16),
                 Text(
                   'Instructions:',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  '**For the Vada:**\n'
-                  '1. Grind the urad dal with green chili (if using), ginger, and curry leaves into a thick batter. Add salt to taste.\n'
-                  '2. Heat oil in a pan. Once hot, scoop small portions of the batter and deep fry until golden brown and crispy.\n'
-                  '3. Drain the vadas on paper towels.\n'
+                  '**Preparation:**\n'
+                  '1. Wash and soak all the dals and grains in water for at least 30 minutes.\n'
+                  '2. In a pressure cooker, add the soaked dals, grains, and chopped meat.\n'
+                  '3. Add ginger-garlic paste, red chili powder, turmeric powder, garam masala powder, and salt.\n'
+                  '4. Pour enough water to cover the ingredients and cook until the meat is tender and the dals and grains are well cooked.\n'
                   '\n'
-                  '**For the Potato Filling (Batata Bhaji):**\n'
-                  '4. Heat oil in a pan. Add mustard seeds and cumin seeds. Once they splutter, add green chili and curry leaves.\n'
-                  '5. Sauté for a minute, then add chopped onion and ginger. Cook until softened.\n'
-                  '6. Add turmeric powder, red chili powder, and coriander powder. Stir well.\n'
-                  '7. Add mashed potatoes and salt to taste. Mix well and cook for a few minutes.\n'
-                  '8. Garnish with chopped cilantro.\n'
+                  '**Making Haleem:**\n'
+                  '5. Once cooked, use a hand blender to blend the mixture to a smooth consistency.\n'
+                  '6. In a separate pan, heat some oil or ghee and fry the sliced onions until golden brown.\n'
+                  '7. Add the chopped tomatoes and cook until soft.\n'
+                  '8. Add this onion-tomato mixture to the blended haleem.\n'
+                  '9. Mix well and cook on low heat for another 10-15 minutes until the flavors meld together.\n'
+                  '10. Adjust the consistency by adding water if necessary.\n'
                   '\n'
-                  '**Assembly:**\n'
-                  '9. Slice the pav buns in half. Spread green chutney and tamarind chutney (if using) on the insides of the buns.\n'
-                  '10. Stuff the buns with a vada and potato filling.\n'
-                  '11. Serve hot and enjoy!',
+                  '**Serving:**\n'
+                  '11. Serve hot garnished with fried onions, fresh coriander leaves, sliced ginger, mint leaves, and a squeeze of lemon juice.\n'
+                  '12. Serve with naan or pita bread and enjoy!',
                   style: TextStyle(fontSize: 16),
                 ),
                 SizedBox(height: 8),

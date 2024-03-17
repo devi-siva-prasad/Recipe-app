@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:recipe/appbar.dart';
 import 'package:recipe/items.dart';
 import 'package:recipe/menu.dart';
 import 'starter.dart';
@@ -7,35 +8,14 @@ import 'main.dart';
 
 class DashboardPage extends StatelessWidget {
   final String user;
-  
-  const DashboardPage({super.key, required this.user});
-
-  void navigateNext(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => Starter()),
-    );
-  }
+  final String email;
+  const DashboardPage({super.key, required this.user, required this.email});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: NavBar(data: user),
-      appBar: AppBar(
-        title: Text('Welcome',
-            style: TextStyle(
-              color: Colors.white,
-            )),
-        leading: Builder(
-            builder: (context) => IconButton(
-                  onPressed: () {
-                    Scaffold.of(context).openDrawer();
-                  },
-                  icon: Icon(Icons.menu),
-                  color: Colors.white,
-                )),
-        backgroundColor: Color.fromARGB(255, 243, 53, 53),
-      ),
+      drawer: NavBar(data: user, useremail: email),
+      appBar: appbar(),
       body: Container(
         color: Color.fromARGB(255, 0, 0, 0), // Background color
         child: Column(
@@ -82,7 +62,8 @@ class DashboardPage extends StatelessWidget {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    // Handle button 1 tap
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => LoginPage()));
                   },
                   child: Text(
                     '<',
@@ -105,7 +86,10 @@ class DashboardPage extends StatelessWidget {
                   child: Text('Get Recipe'),
                 ),
                 ElevatedButton(
-                  onPressed: () => navigateNext(context),
+                  onPressed: () {
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => Starter()));
+                  },
                   child: Text(
                     '>',
                     style: TextStyle(fontSize: 30),

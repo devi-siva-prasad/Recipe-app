@@ -1,28 +1,24 @@
 import "package:flutter/material.dart";
-import "package:recipe/dashboard_page.dart";
 
-class newclass extends StatelessWidget {
+class appbar extends StatelessWidget implements PreferredSizeWidget{
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Welcome',
-            style: TextStyle(
-              color: Colors.white,
-            )),
-        leading: IconButton(
-          icon: Icon(
-            Icons.menu,
+    return AppBar(
+      title: Text('Welcome',
+          style: TextStyle(
             color: Colors.white,
-          ),
-          onPressed: () {
-            /* Action */
-            showModalBottomSheet(
-                context: context, builder: (context) => HamMenu());
-          },
-        ),
-        backgroundColor: Color.fromARGB(255, 0, 0, 0),
-      ),
+          )),
+      leading: Builder(
+          builder: (context) => IconButton(
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
+                icon: Icon(Icons.menu),
+                color: Colors.white,
+              )),
+      backgroundColor: Color.fromARGB(255, 243, 53, 53),
     );
   }
+  @override
+  Size get preferredSize => Size.fromHeight(kToolbarHeight);
 }

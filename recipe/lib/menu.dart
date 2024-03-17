@@ -3,10 +3,24 @@ import 'package:flutter/services.dart';
 import 'package:recipe/items.dart';
 import 'package:recipe/main.dart';
 
+class NavigationBar extends StatefulWidget {
+  const NavigationBar({super.key});
+
+  @override
+  State<NavigationBar> createState() => _NavigationBarState();
+}
+
+class _NavigationBarState extends State<NavigationBar> {
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
+
 class NavBar extends StatelessWidget {
   final String data;
-
-  const NavBar({super.key, required this.data});
+  final String useremail;
+  const NavBar({super.key, required this.data, required this.useremail});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +32,7 @@ class NavBar extends StatelessWidget {
         children: [
           UserAccountsDrawerHeader(
             accountName: Text(data),
-            accountEmail: Text('example@gmail.com'),
+            accountEmail: Text(useremail),
             currentAccountPicture: CircleAvatar(
               child: ClipOval(
                 child: Image.network(

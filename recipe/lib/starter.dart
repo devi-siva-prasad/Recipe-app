@@ -1,31 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:recipe/afganiMutton.dart';
+import 'package:recipe/appbar.dart';
 import 'package:recipe/dashboard_page.dart';
 import 'package:recipe/menu.dart';
 
 class Starter extends StatelessWidget {
+
   const Starter({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: NavBar( data: 'user',),
-      appBar: AppBar(
-        title: Text('Welcome',
-            style: TextStyle(
-              color: Colors.white,
-            )),
-        leading: Builder(
-            builder: (context) => IconButton(
-                  onPressed: () {
-                    Scaffold.of(context).openDrawer();
-                  },
-                  icon: Icon(Icons.menu),
-                  color: Colors.white,
-                )),
-        backgroundColor: Color.fromARGB(255, 243, 53, 53),
-      ),
+      drawer: NavBar( data: 'user',useremail: '123@gmail.com',),
+      appBar: appbar(),
       body: Container(
         color: Color.fromARGB(255, 0, 0, 0), // Background color
         child: Column(
@@ -79,7 +67,7 @@ class Starter extends StatelessWidget {
                     //back
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => AfganiMutton()),
+                      MaterialPageRoute(builder: (context) => DashboardPage(user:"user",email: "123@gmail.com",)),
                     );
                   },
                   child: Text(

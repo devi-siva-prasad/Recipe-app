@@ -1,8 +1,5 @@
-import 'dart:ui';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:recipe/afganiMutton.dart';
 import 'package:recipe/createAccount.dart';
 import 'dashboard_page.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,7 +13,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
       home: LoginPage(),
       debugShowCheckedModeBanner: false,
     );
@@ -41,19 +37,17 @@ class _LoginPageState extends State<LoginPage> {
     };
 
     try {
-      print(json);
       final response = await http.post(url,
           headers: header,
           body: '{"username":"$username","password":"$password"}');
 
       if (response.statusCode == 200) {
-        // Handle successful login
-        print(response.body);
-        print('Login successful!');
         Map<String, dynamic> data = json.decode(response.body);
-        // String user = data['username'];
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => DashboardPage(user: data['username'])));
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => DashboardPage(
+                    user: data['username'], email: data['email'])));
       } else {
         // Handle failed login
         print('Login failed. Please try again.');
@@ -71,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/login.jpg'),
+                image: AssetImage('assets/login.png'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -119,7 +113,7 @@ class _LoginPageState extends State<LoginPage> {
                               Icons.mail,
                               color: Color.fromARGB(253, 0, 0, 0),
                             ),
-                            labelText: 'username',
+                            labelText: 'Username',
                             filled: false,
                             fillColor: Color.fromARGB(255, 255, 255, 255)
                                 .withOpacity(1),
@@ -140,7 +134,7 @@ class _LoginPageState extends State<LoginPage> {
                               Icons.lock,
                               color: Color.fromARGB(253, 0, 0, 0),
                             ),
-                            labelText: 'password',
+                            labelText: 'Password',
                             filled: false,
                             fillColor: Color.fromARGB(255, 255, 255, 255)
                                 .withOpacity(1),
@@ -170,10 +164,6 @@ class _LoginPageState extends State<LoginPage> {
                       TextButton(
                         onPressed: () {
                           // Implement forgot password functionality
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => AfganiMutton()));
                         },
                         child: Text(
                           'Forgot Password?',
