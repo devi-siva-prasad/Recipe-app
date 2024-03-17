@@ -80,13 +80,14 @@ func login(c echo.Context) error {
 	defer db.Close()
 
 	var user User
-	rows,err := db.Query("SELECT id, username FROM users WHERE username=? AND password=?", data["username"], data["password"])
+	rows,err := db.Query("SELECT id, username,email FROM users WHERE username=? AND password=?", data["username"], data["password"])
 	rowsCount:=0
 	for rows.Next(){
 		rowsCount++
 		var id int 
 		var username string
-		if err:=rows.Scan(&id,&username);
+		var email string
+		if err:=rows.Scan(&id,&username,&email);
 
 		err!=nil{
 			panic(err.Error())
@@ -94,6 +95,7 @@ func login(c echo.Context) error {
 		fmt.Println(id)
 		user.ID=id 
 		user.Username=username
+		user.Email=email
 	}
 	if err != nil {
 		return c.JSON(http.StatusUnauthorized, map[string]string{"message": "Invalid username or password"})

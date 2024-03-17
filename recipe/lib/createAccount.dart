@@ -1,11 +1,8 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:recipe/main.dart';
 import 'package:http/http.dart' as http;
-import 'main.dart';
 
 void main() {
   runApp(MaterialApp(home: SignUpPage()));
@@ -94,7 +91,7 @@ class SignUpPage extends StatelessWidget {
                         Icons.mail,
                         color: Color.fromARGB(252, 255, 255, 255),
                       ),
-                      labelText: 'email',
+                      labelText: 'Email',
                       labelStyle: TextStyle(
                           color: const Color.fromARGB(255, 255, 255, 255)),
                       filled: false,
@@ -114,7 +111,7 @@ class SignUpPage extends StatelessWidget {
                         Icons.supervised_user_circle_rounded,
                         color: Color.fromARGB(252, 255, 255, 255),
                       ),
-                      labelText: 'username',
+                      labelText: 'Username',
                       labelStyle: TextStyle(
                           color: const Color.fromARGB(255, 255, 255, 255)),
                       filled: false,
@@ -134,7 +131,7 @@ class SignUpPage extends StatelessWidget {
                         Icons.password_rounded,
                         color: Color.fromARGB(255, 255, 255, 255),
                       ),
-                      labelText: 'password',
+                      labelText: 'Password',
                       labelStyle: TextStyle(
                           color: const Color.fromARGB(255, 255, 255, 255)),
                       filled: false,
@@ -153,9 +150,9 @@ class SignUpPage extends StatelessWidget {
                         Icons.verified_user_rounded,
                         color: Color.fromARGB(255, 255, 255, 255),
                       ),
-                      labelText: 'confirm password',
+                      labelText: 'Confirm Password',
                       labelStyle: TextStyle(
-                          color: const Color.fromARGB(255, 255, 255, 255)),
+                          color: Color.fromARGB(255, 255, 255, 255)),
                       filled: false,
                       fillColor: Colors.white.withOpacity(1),
                       border: OutlineInputBorder(),

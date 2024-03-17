@@ -1,50 +1,61 @@
 import 'package:flutter/material.dart';
-import 'package:recipe/appbar.dart';
-import 'package:recipe/item4.dart';
-import 'package:recipe/menu.dart';
-import 'starter.dart';
+import 'menu.dart';
 
-class AfganiMutton extends StatelessWidget {
-  const AfganiMutton({super.key});
+class item9 extends StatelessWidget {
+  const item9({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const NavBar(data:"user",useremail:"123@gmail.com"),
-      appBar: appbar(),
+      drawer: NavBar(data: "user", useremail: "123@gmail.com"),
+      appBar: AppBar(
+        title: Text('Welcome',
+            style: TextStyle(
+              color: Colors.white,
+            )),
+        leading: Builder(
+            builder: (context) => IconButton(
+                  onPressed: () {
+                    Scaffold.of(context).openDrawer();
+                  },
+                  icon: Icon(Icons.menu),
+                  color: Colors.white,
+                )),
+        backgroundColor: Color.fromARGB(255, 243, 53, 53),
+      ),
       body: Container(
         color: Color.fromARGB(255, 0, 0, 0), // Background color
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'Afgani Mutton',
+            Text(
+              'Caramel Apple Slices',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 255, 255, 255),
+                color: const Color.fromARGB(255, 255, 255, 255),
               ),
             ),
             ClipRRect(
               borderRadius: BorderRadius.circular(
                   150.0), // Adjust corner radius as desired
               child: Image.asset(
-                'assets/afgani.jpg', // Your image path
+                'assets/caramelApple.jpg', // Your image path
                 height: 300,
                 width: 300,
                 fit: BoxFit.cover,
               ),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                const Icon(
+                Icon(
                   Icons.timer,
                   size: 40,
                   color: Colors.white,
                 ), // Icon 1
-                const Icon(
+                Icon(
                   Icons.search,
                   size: 40,
                   color: Colors.white,
@@ -56,19 +67,16 @@ class AfganiMutton extends StatelessWidget {
                 ) // Icon 3
               ],
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(
                   onPressed: () {
                     //back
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Starter()),
-                    );
+                    Navigator.pop(context);
                   },
-                  child: const Text(
+                  child: Text(
                     '<',
                     style: TextStyle(fontSize: 30),
                   ),
@@ -79,19 +87,15 @@ class AfganiMutton extends StatelessWidget {
                     showModalBottomSheet(
                         showDragHandle: true,
                         context: context,
-                        builder: (context) => const RecipeDetailsPage());
+                        builder: (context) => RecipeDetailsPage());
                   },
-                  child: const Text('Get Recipe'),
+                  child: Text('Get Recipe'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     // next page
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) => const item4()),
-                    );
                   },
-                  child: const Text(
+                  child: Text(
                     '>',
                     style: TextStyle(fontSize: 30),
                   ),
@@ -110,7 +114,7 @@ class RecipeDetailsPage extends StatelessWidget {
   const RecipeDetailsPage({super.key});
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Scrollbar(
         child: SingleChildScrollView(
           padding: EdgeInsets.all(16.0), // Add padding around content
@@ -124,21 +128,22 @@ class RecipeDetailsPage extends StatelessWidget {
                 ),
                 SizedBox(height: 16),
                 Text(
-                  'Process',
+                  'Ingerdients & Process',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 8),
                 Text(
-                  '1. Marinate the mutton with yogurt, ginger-garlic paste, garam masala powder, and salt for at least 2 hours.\n'
-                  '2. Heat oil in a pan and sauté onions until golden brown.\n'
-                  '3. Add the marinated mutton and cook until browned on all sides.\n'
-                  '4. Add chopped green chilies (if using) and cook for a minute.\n'
-                  '5. Add water or mutton stock to cover the meat and bring to a boil.\n'
-                  '6. Reduce heat, cover, and simmer for about 45 minutes, or until the mutton is tender.\n'
-                  '7. In a separate bowl, whisk together fresh cream, milk, crushed black peppercorns, cumin powder, turmeric powder, and dried roasted fenugreek leaves powder.\n'
-                  '8. Add the cream mixture to the simmering mutton and cook for 10-15 minutes, or until the sauce thickens slightly.\n'
-                  '9. Garnish with chopped coriander leaves, mint leaves, and (optional) a whole black cardamom and bay leaf.\n'
-                  '10. Serve hot with naan or rice.',
+                  'Ingredients'
+                  '2 pink lady apples'
+                  ' 1 lemon, juiced'
+                  '1 cup purchased caramel sauce, or more as needed'
+                  '1/2 cup chopped pecans'
+                  '1/2 cup pomegranate seeds'
+                  'Directions'
+                  ' Line a tray with parchment. Cut both apples into thick round slices, about 8 total slices. Place apples in a shallow dish and squeeze lemon juice over both sides.'
+                  'Heat caramel sauce in a microwave-safe bowl until softened, about 30 seconds.'
+                  'With a paper towel, dry each apple slice, and dip half the apple into caramel sauce. Place dipped apple on the prepared tray. Repeat until all apples have been dipped. Refrigerate until firm, 30 to 40 minutes.'
+                  ' Sprinkle pecans and pomegranate seeds onto caramel-dipped side of each apple.',
                   style: TextStyle(fontSize: 16),
                 ),
                 SizedBox(height: 16),

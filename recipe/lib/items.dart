@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:recipe/afganiMutton.dart';
-import 'package:recipe/dashboard_page.dart';
 import 'package:recipe/item4.dart';
+import 'package:recipe/item5.dart';
+import 'package:recipe/item6.dart';
+import 'package:recipe/item7.dart';
+import 'package:recipe/item8.dart';
+import 'package:recipe/item9.dart';
 import 'package:recipe/starter.dart';
 
 class MyList extends StatelessWidget {
@@ -82,8 +86,8 @@ class MyList extends StatelessWidget {
             leading: ClipRRect(
               borderRadius: BorderRadius.circular(
                   50.0), // Adjust corner radius as desired
-              child: Image.network(
-                'https://www.indianhealthyrecipes.com/wp-content/uploads/2022/10/vada-pav-recipe.jpg', // Replace with your high-resolution image path
+              child: Image.asset(
+                'assets/vadaPav.jpeg', // Replace with your high-resolution image path
                 width: 60.0,
                 height: 70.0,
                 fit: BoxFit.cover,
@@ -102,15 +106,17 @@ class MyList extends StatelessWidget {
               borderRadius: BorderRadius.circular(
                   50.0), // Adjust corner radius as desired
               child: Image.asset(
-                'assets/starter.jpg', // Replace with your high-resolution image path
+                'assets/Haleem.jpg', // Replace with your high-resolution image path
                 width: 60.0,
                 height: 70.0,
                 fit: BoxFit.cover,
               ),
             ), // Replace with your image path
-            title: Text(''),
+            title: Text('Haleem'),
             onTap: () {
               // Navigate to Item 5 screen
+              Navigator.pushReplacement(
+                  context, MaterialPageRoute(builder: (context) => item5()));
             },
           ),
           ListTile(
@@ -119,15 +125,17 @@ class MyList extends StatelessWidget {
               borderRadius: BorderRadius.circular(
                   50.0), // Adjust corner radius as desired
               child: Image.asset(
-                'assets/starter.jpg', // Replace with your high-resolution image path
+                'assets/chocolateMousse.jpg', // Replace with your high-resolution image path
                 width: 60.0,
                 height: 70.0,
                 fit: BoxFit.cover,
               ),
             ), // Replace with your image path
-            title: Text('Item 6'),
+            title: Text('Chocolate Mousse'),
             onTap: () {
               // Navigate to Item 6 screen
+              Navigator.pushReplacement(
+                  context, MaterialPageRoute(builder: (context) => item6()));
             },
           ),
           ListTile(
@@ -136,15 +144,55 @@ class MyList extends StatelessWidget {
               borderRadius: BorderRadius.circular(
                   50.0), // Adjust corner radius as desired
               child: Image.asset(
-                'assets/starter.jpg', // Replace with your high-resolution image path
+                'assets/white-chocolate-cheesecake.jpg', // Replace with your high-resolution image path
                 width: 60.0,
                 height: 70.0,
                 fit: BoxFit.cover,
               ),
             ), // Replace with your image path
-            title: Text('Item 7'),
+            title: Text('White Chocolate cheese cake'),
             onTap: () {
               // Navigate to Item 7 screen
+              Navigator.pushReplacement(
+                  context, MaterialPageRoute(builder: (context) => item7()));
+            },
+          ),
+          ListTile(
+            contentPadding: EdgeInsets.all(20),
+            leading: ClipRRect(
+              borderRadius: BorderRadius.circular(
+                  50.0), // Adjust corner radius as desired
+              child: Image.asset(
+                'assets/scmc.jpg', // Replace with your high-resolution image path
+                width: 60.0,
+                height: 70.0,
+                fit: BoxFit.cover,
+              ),
+            ), // Replace with your image path
+            title: Text('Strawberry Chocolate Mousse cake'),
+            onTap: () {
+              // Navigate to Item 7 screen
+              Navigator.pushReplacement(
+                  context, MaterialPageRoute(builder: (context) => item8()));
+            },
+          ),
+          ListTile(
+            contentPadding: EdgeInsets.all(20),
+            leading: ClipRRect(
+              borderRadius: BorderRadius.circular(
+                  50.0), // Adjust corner radius as desired
+              child: Image.asset(
+                'assets/CaramelApple.jpg', // Replace with your high-resolution image path
+                width: 60.0,
+                height: 70.0,
+                fit: BoxFit.cover,
+              ),
+            ), // Replace with your image path
+            title: Text('Caramel Apple Slices'),
+            onTap: () {
+              // Navigate to Item 7 screen
+              Navigator.pushReplacement(
+                  context, MaterialPageRoute(builder: (context) => item9()));
             },
           ),
         ],

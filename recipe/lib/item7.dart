@@ -1,50 +1,63 @@
 import 'package:flutter/material.dart';
-import 'package:recipe/appbar.dart';
-import 'package:recipe/item4.dart';
-import 'package:recipe/menu.dart';
-import 'starter.dart';
+import 'package:recipe/item8.dart';
 
-class AfganiMutton extends StatelessWidget {
-  const AfganiMutton({super.key});
+import 'menu.dart';
+
+class item7 extends StatelessWidget {
+  const item7({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const NavBar(data:"user",useremail:"123@gmail.com"),
-      appBar: appbar(),
+      drawer: NavBar(data: "user", useremail: "123@gmail.com"),
+      appBar: AppBar(
+        title: Text('Welcome',
+            style: TextStyle(
+              color: Colors.white,
+            )),
+        leading: Builder(
+            builder: (context) => IconButton(
+                  onPressed: () {
+                    Scaffold.of(context).openDrawer();
+                  },
+                  icon: Icon(Icons.menu),
+                  color: Colors.white,
+                )),
+        backgroundColor: Color.fromARGB(255, 243, 53, 53),
+      ),
       body: Container(
         color: Color.fromARGB(255, 0, 0, 0), // Background color
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'Afgani Mutton',
+            Text(
+              'Whie Chocolate Cheese Cake',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 255, 255, 255),
+                color: const Color.fromARGB(255, 255, 255, 255),
               ),
             ),
             ClipRRect(
               borderRadius: BorderRadius.circular(
                   150.0), // Adjust corner radius as desired
               child: Image.asset(
-                'assets/afgani.jpg', // Your image path
+                'assets/white-chocolate-cheesecake.jpg', // Your image path
                 height: 300,
                 width: 300,
                 fit: BoxFit.cover,
               ),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                const Icon(
+                Icon(
                   Icons.timer,
                   size: 40,
                   color: Colors.white,
                 ), // Icon 1
-                const Icon(
+                Icon(
                   Icons.search,
                   size: 40,
                   color: Colors.white,
@@ -56,19 +69,16 @@ class AfganiMutton extends StatelessWidget {
                 ) // Icon 3
               ],
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(
                   onPressed: () {
                     //back
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Starter()),
-                    );
+                    Navigator.pop(context);
                   },
-                  child: const Text(
+                  child: Text(
                     '<',
                     style: TextStyle(fontSize: 30),
                   ),
@@ -79,19 +89,17 @@ class AfganiMutton extends StatelessWidget {
                     showModalBottomSheet(
                         showDragHandle: true,
                         context: context,
-                        builder: (context) => const RecipeDetailsPage());
+                        builder: (context) => RecipeDetailsPage());
                   },
-                  child: const Text('Get Recipe'),
+                  child: Text('Get Recipe'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     // next page
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) => const item4()),
-                    );
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => item8()));
                   },
-                  child: const Text(
+                  child: Text(
                     '>',
                     style: TextStyle(fontSize: 30),
                   ),
@@ -110,7 +118,7 @@ class RecipeDetailsPage extends StatelessWidget {
   const RecipeDetailsPage({super.key});
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Scrollbar(
         child: SingleChildScrollView(
           padding: EdgeInsets.all(16.0), // Add padding around content
@@ -124,21 +132,30 @@ class RecipeDetailsPage extends StatelessWidget {
                 ),
                 SizedBox(height: 16),
                 Text(
-                  'Process',
+                  'Ingerdients & Process',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 8),
                 Text(
-                  '1. Marinate the mutton with yogurt, ginger-garlic paste, garam masala powder, and salt for at least 2 hours.\n'
-                  '2. Heat oil in a pan and sauté onions until golden brown.\n'
-                  '3. Add the marinated mutton and cook until browned on all sides.\n'
-                  '4. Add chopped green chilies (if using) and cook for a minute.\n'
-                  '5. Add water or mutton stock to cover the meat and bring to a boil.\n'
-                  '6. Reduce heat, cover, and simmer for about 45 minutes, or until the mutton is tender.\n'
-                  '7. In a separate bowl, whisk together fresh cream, milk, crushed black peppercorns, cumin powder, turmeric powder, and dried roasted fenugreek leaves powder.\n'
-                  '8. Add the cream mixture to the simmering mutton and cook for 10-15 minutes, or until the sauce thickens slightly.\n'
-                  '9. Garnish with chopped coriander leaves, mint leaves, and (optional) a whole black cardamom and bay leaf.\n'
-                  '10. Serve hot with naan or rice.',
+                  'Ingredients\n'
+                  '300g digestive biscuits\n'
+                  '150g unsalted butter, melted, plus extra to grease\n'
+                  '400g white chocolate, broken into pieces\n'
+                  '300g full-fat cream cheese (we used Philadelphia)\n'
+                  '250g mascarpone\n'
+                  '300ml double cream\n'
+                  '200g strawberries or raspberries, to serve\n'
+                  'Method\n'
+                  'STEP 1\n'
+                  'Crush the biscuits in a food processor until completely ground. Add butter and whizz again until you have the desired crumbly consistency.'
+                  '\nSTEP 2\n'
+                  'Grease and line the base of a 23cm deep, loose-bottomed cake tin. Add the biscuit mixture to the cake tin and pat it flat. Leave to set in the fridge for approximately 30 mins.'
+                  '\nSTEP 3\n'
+                  'Begin melting the chocolate in a heatproof glass bowl over a small pan of hot water on a low heat. Stir occasionally to prevent sticking. Remove from the heat and leave to cool for 10 mins until barely warm but still liquid.'
+                  '\nSTEP 4\n'
+                  'Meanwhile whisk the cream cheese and mascarpone together. Add double cream and keep whisking until the mixture is just holding its own shape. Finally, add the melted chocolate and whisk until just combined.'
+                  '\nSTEP 5\n'
+                  'Spoon the mixture over the cooled and set biscuit base, then smooth the top. Return to the fridge to cool for at least 6 hrs until the topping is set. Finally, decorate with fruit.',
                   style: TextStyle(fontSize: 16),
                 ),
                 SizedBox(height: 16),
